@@ -4,3 +4,6 @@ cert.pem
 key.pem
 .env
 
+
+*.log
+*.lock
