@@ -1,4 +1,4 @@
-require('dotenv').config()
+
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
@@ -32,12 +32,12 @@ app.post('/upload', async (req, res) => {
                 res.json(result)
             } else return res.status(400).json({message : "Teks bahasa Jepang Tidak Terdeteksi"})
         } else {
-        	return res.status(500).json({message : 'Something wrong', error : JSON.stringify(respons)})
+            return res.status(500).json({message : 'Something wrong', error : JSON.stringify(respons)})
         }
 
     } else {
-    	console.log(respons)
-    	return res.status(500).json({message : 'Something wrong', error : JSON.stringify(respons)})
+        console.log(respons)
+        return res.status(500).json({message : 'Something wrong', error : JSON.stringify(respons)})
     }
 })
 
@@ -47,6 +47,7 @@ app.post('/translate', async (req, res) => {
     if (result) res.json(result)
     else return res.status(400).json({message : "Teks bahasa Jepang Tidak Terdeteksi"})
 })
+
 
 app.get('/', (req,res) => {
     res.json({success : "true", message : 'Selamat data di API penerjemah bahasa Jepang - Indonesia memanfaatkan teknologi kamera'})

@@ -1,9 +1,7 @@
-require('dotenv').config()
 const KuromojiAnalyzer = require("kuroshiro-analyzer-kuromoji");
 const Kuroshiro = require("kuroshiro")
 const { translate } = require('bing-translate-api');
 const kuroshiro = new Kuroshiro();
-jj
 
 (async function (){
     await kuroshiro.init(new KuromojiAnalyzer())
