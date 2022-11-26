@@ -4,19 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js --trace-warnings"
   },
   "author": "dedi cahya",
   "license": "ISC",
   "dependencies": {
-    "bing-translate-api": "^2.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "kuroshiro": "~1.1.2",
     "kuroshiro-analyzer-kuromoji": "^1.1.0",
     "morgan": "^1.10.0",
-    "ocr-space-api-wrapper": "^2.1.0",
-    "translatte": "^3.0.1"
+    "ocr-space-api-wrapper": "^2.1.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.0"
