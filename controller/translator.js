@@ -3,6 +3,10 @@ const KuromojiAnalyzer = require("kuroshiro-analyzer-kuromoji");
 const Kuroshiro = require("kuroshiro")
 const kuroshiro = new Kuroshiro();
 
+(async function (){
+    await kuroshiro.init(new KuromojiAnalyzer())
+})()
+
 class TranslatorController {
     result = {}
     URL=""
@@ -12,12 +16,11 @@ class TranslatorController {
         this.target = target
         this.status
         this.replaceParams()
-        console.log(this)
         this.URL = `https://translation.googleapis.com/language/translate/v2?key=${process.env.GOOGLE_CREDENTIAL_KEY}&q=${this.text}&source=${this.source}&target=${this.target}`
     }
-    async init() {
-        await kuroshiro.init(new KuromojiAnalyzer())
-    }
+    // async init() {
+    //     await kuroshiro.init(new KuromojiAnalyzer())
+    // }
 
     async reqData() {
         try {
@@ -49,8 +52,5 @@ class TranslatorController {
 
 }
 
-// (async function (){
-//     await kuroshiro.init(new KuromojiAnalyzer())
-// })()
 
 module.exports = TranslatorController

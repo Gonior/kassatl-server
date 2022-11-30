@@ -18,14 +18,13 @@ app.post('/upload', async (req, res) => {
 
     let {image, source, target} = req.body
     let respons = await ocrSpace(image, { apiKey: process.env.KEY_OCR_SPACE, language: source === "ja" ? 'jpn' : "eng" });
-    console.log(respons.OCRExitCode)
     if (respons.OCRExitCode === 1 || respons.OCRExitCode === 2) {
         let texts = respons.ParsedResults.length === 1 ? {...respons.ParsedResults[0]} : {}
         
         if (texts) {
             if (texts.ParsedText) {
                 let translator = new TranslatorController(texts.ParsedText,source,target) 
-                await translator.init()
+                // await translator.init()
                 let result = await translator.getTranslate()
                 if (result.translate) res.json(result)
                 else return res.status(500).json({message : "something went wrong"})
